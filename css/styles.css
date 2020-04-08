@@ -68,7 +68,7 @@ a {
 #app #sidebar img {
   width: 200px;
   height: 200px;
-  border-radius: 24px;
+  border-radius: 50%;
 }
 
 #app #sidebar h1 span {
@@ -144,8 +144,7 @@ a {
 #app main #skills .skill-barre #talent1,
 #app main #skills .skill-barre #talent2,
 #app main #skills .skill-barre #talent3,
-#app main #skills .skill-barre #talent4,
-#app main #skills .skill-barre #talent5 {
+#app main #skills .skill-barre #talent4 {
   position: absolute;
   height: 100%;
   top: 0;
@@ -155,22 +154,18 @@ a {
 }
 
 #app main #skills .skill-barre #talent1 {
-  width: 75%;
-}
-
-#app main #skills .skill-barre #talent2 {
-  width: 65%;
-}
-
-#app main #skills .skill-barre #talent3 {
-  width: 85%;
-}
-
-#app main #skills .skill-barre #talent4 {
   width: 80%;
 }
 
-#app main #skills .skill-barre #talent5 {
+#app main #skills .skill-barre #talent2 {
+  width: 77.5%;
+}
+
+#app main #skills .skill-barre #talent3 {
+  width: 75%;
+}
+
+#app main #skills .skill-barre #talent4 {
   width: 70%;
 }
 
@@ -256,7 +251,11 @@ a {
 
 #app main #contact form {
   max-width: 700px;
-  margin-right: 10rem;
+}
+
+#app main #contact form #form-status {
+  display: none;
+  align-items: center;
 }
 
 #app main #contact form .form-container {
@@ -277,21 +276,15 @@ a {
 #app main #contact form input,
 #app main #contact form textarea {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0);
+  border: 0;
   padding: 10px;
   border-radius: 6px;
-  transition: border-bottom .2s ease;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
   color: #131315;
   width: 100%;
   margin-bottom: 20px;
   margin-top: 10px;
-}
-
-#app main #contact form input:focus,
-#app main #contact form textarea:focus {
-  border-left: 2px solid #131315;
 }
 
 #app main #contact form button {
@@ -327,6 +320,34 @@ a {
 .btn:active {
   transform: scale(0.95);
   transform-origin: center;
+}
+
+.succes,
+.erreur {
+  padding: 10px;
+  width: 100%;
+  font-weight: 500;
+  border-radius: 6px;
+  background-color: rgba(19, 19, 21, 0.3);
+  color: #efeff0;
+  margin-bottom: 3rem;
+}
+
+#dot-status {
+  height: 1.6rem;
+  margin-right: 1rem;
+}
+
+.svg-succes {
+  fill: #206020;
+}
+
+.svg-erreur {
+  fill: #602020;
+}
+
+.cache {
+  display: none;
 }
 
 /* MEDIA */
