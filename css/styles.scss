@@ -366,16 +366,23 @@ a {
         font-size: 8px;
     }
 
+    h1 {
+        font-size: 3rem;
+    }
+
     #app {
         display: unset;
 
         #sidebar {
             min-height: 100vh;
+            padding: 3rem;
+            min-width: unset;
 
             img {
                 height: 150px;
                 width: 150px;
             }
+            
         }
     
         main {
@@ -399,5 +406,4 @@ a {
         }
 
     }
-
 }

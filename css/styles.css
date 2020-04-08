@@ -356,11 +356,16 @@ a {
   body {
     font-size: 8px;
   }
+  h1 {
+    font-size: 3rem;
+  }
   #app {
     display: unset;
   }
   #app #sidebar {
     min-height: 100vh;
+    padding: 3rem;
+    min-width: unset;
   }
   #app #sidebar img {
     height: 150px;
