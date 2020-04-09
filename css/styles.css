@@ -113,6 +113,26 @@ a {
   flex-direction: column;
   overflow-y: scroll;
   font-size: 1.6rem;
+  scrollbar-color: #efeff0 rgba(19, 19, 21, 0);
+  scrollbar-width: thin;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+#app main::-webkit-scrollbar {
+  width: 10px;
+}
+
+#app main::-webkit-scrollbar-track {
+  background: none;
+  border-radius: 1rem;
+}
+
+#app main::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: none;
+  transition: background-color .4s ease;
 }
 
 #app main #intro {
@@ -199,9 +219,9 @@ a {
 #app main #cv .cv-conteneur .job-timeline {
   position: absolute;
   background-color: #131315;
-  width: 8px;
+  width: 6px;
   height: 100%;
-  margin: 8px 8px 3rem;
+  margin: 8px 9px 3rem;
   z-index: -1;
 }
 
@@ -314,7 +334,7 @@ a {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .btn:active {

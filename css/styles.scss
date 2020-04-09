@@ -126,6 +126,26 @@ a {
         flex-direction: column;
         overflow-y: scroll;
         font-size: 1.6rem;
+        scrollbar-color: $color-white hsla(240, 5%, 8%, 0);
+        scrollbar-width: thin;
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: none;
+            border-radius: 1rem;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            border-radius: 1rem;
+            background-color: none;
+            transition: background-color .4s ease;
+        }
 
         #intro {
             justify-content: center;
@@ -198,9 +218,9 @@ a {
                 .job-timeline {
                     position: absolute;
                     background-color: $color-black;
-                    width: 8px;
+                    width: 6px;
                     height: 100%;
-                    margin: 8px 8px 3rem;
+                    margin: 8px 9px 3rem;
                     z-index: -1;
                 }
 
@@ -319,7 +339,7 @@ a {
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0,0,0,1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
     &:active {
