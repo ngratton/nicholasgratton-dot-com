@@ -126,8 +126,16 @@ a {
         flex-direction: column;
         overflow-y: scroll;
         font-size: 1.6rem;
-        scrollbar-color: $color-white hsla(240, 5%, 8%, 0);
+        scrollbar-color: hsla(240, 5%, 8%, 0) hsla(240, 5%, 8%, 0);
         scrollbar-width: thin;
+
+        &:hover {
+            scrollbar-color: $color-white hsla(240, 5%, 8%, 0);
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $color-white;
+            }
+        }
 
         /* width */
         &::-webkit-scrollbar {
@@ -148,10 +156,12 @@ a {
         }
 
         #intro {
+            flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
             justify-content: center;
+            min-height: 50vh;
             padding: 8rem 16rem 8rem 8rem;
             background-color: hsl(120, 25%, 75%);
-            min-height: 50vh;
             color: $color-black;
 
             a {
@@ -167,7 +177,9 @@ a {
         }
     
         #skills {
-            justify-content: center;
+            flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
+            height: auto;
             padding: 8rem 16rem 8rem 8rem;
             background-color: hsl(240, 15%, 25%);
 
@@ -217,15 +229,18 @@ a {
         }
     
         #cv {
-            justify-content: center;
+            flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
             padding: 8rem 16rem 8rem 8rem;
             background-color: hsl(60, 50%, 75%);
             color: $color-black;
 
             .cv-conteneur {
+                flex: 1 1 auto;
+                height: 100%;
                 position: relative;
                 z-index: 99;
-
+                
                 .job-timeline {
                     position: absolute;
                     background-color: $color-black;
@@ -236,6 +251,8 @@ a {
                 }
 
                 .job-conteneur {
+                    flex: 1;
+                    flex-basis: auto;
                     width: 100%;
                     margin: 0 20px 3rem 0;
 
@@ -276,6 +293,8 @@ a {
         }
     
         #contact {
+            flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
             justify-content: center;
             min-height: 100vh;
             padding: 8rem 16rem 8rem 8rem;
@@ -335,6 +354,7 @@ a {
 
 .flex {
     display: flex;
+    display: -webkit-flex;
 }
 
 .flex-column {
