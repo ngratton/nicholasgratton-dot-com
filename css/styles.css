@@ -143,6 +143,17 @@ a {
   color: #131315;
 }
 
+#app main #intro a {
+  color: #131315;
+  text-decoration: underline;
+  text-decoration-color: #efeff0;
+  transition: text-decoration-thickness .2s ease;
+}
+
+#app main #intro a:hover {
+  text-decoration-thickness: 2px;
+}
+
 #app main #skills {
   justify-content: center;
   padding: 8rem 16rem 8rem 8rem;

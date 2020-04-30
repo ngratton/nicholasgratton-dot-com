@@ -153,6 +153,17 @@ a {
             background-color: hsl(120, 25%, 75%);
             min-height: 50vh;
             color: $color-black;
+
+            a {
+                color: $color-black;
+                text-decoration: underline;
+                text-decoration-color: $color-white;
+                transition: text-decoration-thickness .2s ease;
+
+                &:hover {
+                    text-decoration-thickness: 2px;
+                }
+            }
         }
     
         #skills {
