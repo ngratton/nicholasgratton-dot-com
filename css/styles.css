@@ -120,11 +120,19 @@ a {
   flex-direction: column;
   overflow-y: scroll;
   font-size: 1.6rem;
-  scrollbar-color: #efeff0 rgba(19, 19, 21, 0);
+  scrollbar-color: rgba(19, 19, 21, 0) rgba(19, 19, 21, 0);
   scrollbar-width: thin;
   /* width */
   /* Track */
   /* Handle */
+}
+
+#app main:hover {
+  scrollbar-color: #efeff0 rgba(19, 19, 21, 0);
+}
+
+#app main:hover::-webkit-scrollbar-thumb {
+  background-color: #efeff0;
 }
 
 #app main::-webkit-scrollbar {
@@ -143,15 +151,30 @@ a {
 }
 
 #app main #intro {
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
   justify-content: center;
+  min-height: 50vh;
   padding: 8rem 16rem 8rem 8rem;
   background-color: #afcfaf;
-  min-height: 50vh;
   color: #131315;
 }
 
+#app main #intro a {
+  color: #131315;
+  text-decoration: underline;
+  text-decoration-color: #efeff0;
+  transition: text-decoration-thickness .2s ease;
+}
+
+#app main #intro a:hover {
+  text-decoration-thickness: 2px;
+}
+
 #app main #skills {
-  justify-content: center;
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  height: auto;
   padding: 8rem 16rem 8rem 8rem;
   background-color: #363649;
 }
@@ -212,13 +235,16 @@ a {
 }
 
 #app main #cv {
-  justify-content: center;
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
   padding: 8rem 16rem 8rem 8rem;
   background-color: #dfdf9f;
   color: #131315;
 }
 
 #app main #cv .cv-conteneur {
+  flex: 1 1 auto;
+  height: 100%;
   position: relative;
   z-index: 99;
 }
@@ -233,6 +259,8 @@ a {
 }
 
 #app main #cv .cv-conteneur .job-conteneur {
+  flex: 1;
+  flex-basis: auto;
   width: 100%;
   margin: 0 20px 3rem 0;
 }
@@ -270,6 +298,8 @@ a {
 }
 
 #app main #contact {
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
   justify-content: center;
   min-height: 100vh;
   padding: 8rem 16rem 8rem 8rem;
@@ -325,6 +355,7 @@ a {
 /* UTILS */
 .flex {
   display: flex;
+  display: -webkit-flex;
 }
 
 .flex-column {
