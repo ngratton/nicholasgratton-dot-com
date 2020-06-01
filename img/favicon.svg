@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #131314;
+      }
+
+      .cls-2 {
+        fill: #8fbf8f;
+      }
+
+      .cls-3 {
+        fill: #363640;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="32" height="64"/>
+  <rect class="cls-2" x="32" width="32" height="32"/>
+  <rect id="Rectangle_2_copy" data-name="Rectangle 2 copy" class="cls-3" x="32" y="32" width="32" height="32"/>
+</svg>
