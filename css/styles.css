@@ -191,32 +191,50 @@ a {
   border-radius: 12px;
 }
 
-#app main #skills .skill-barre #talent1,
-#app main #skills .skill-barre #talent2,
-#app main #skills .skill-barre #talent3,
-#app main #skills .skill-barre #talent4 {
+#app main #skills .skill-barre .barre #talent1,
+#app main #skills .skill-barre .barre #talent2,
+#app main #skills .skill-barre .barre #talent3,
+#app main #skills .skill-barre .barre #talent4 {
   position: absolute;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #efeff0;
-  border-radius: 6px 0 0 6px;
+  border-radius: 6px;
+  width: 0;
 }
 
-#app main #skills .skill-barre #talent1 {
-  width: 85%;
-}
-
-#app main #skills .skill-barre #talent2 {
+#app main #skills .skill-barre .barre #talent1 {
   width: 82.5%;
 }
 
-#app main #skills .skill-barre #talent3 {
+#app main #skills .skill-barre .barre #talent2 {
+  width: 80%;
+}
+
+#app main #skills .skill-barre .barre #talent3 {
   width: 75%;
 }
 
-#app main #skills .skill-barre #talent4 {
+#app main #skills .skill-barre .barre #talent4 {
   width: 80%;
+}
+
+#app main #skills .skill-barre .barre .barre-mesure {
+  position: absolute;
+  height: 100%;
+  animation: fill 0.75s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+  width: 100%;
+  background-color: #efeff0;
+  border-radius: 6px;
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 #app main #skills ul {
