@@ -6,6 +6,25 @@
 }
 
 /* VARIABLES */
+/* ANIMATIONS */
+@keyframes fadein {
+  0% {
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 /* BACICS */
 * {
   box-sizing: border-box;
@@ -16,7 +35,7 @@ body {
   margin: 0;
   padding: 0;
   color: #efeff0;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-feature-settings: 'salt';
   background-color: #131315;
@@ -35,7 +54,7 @@ h6 {
 h1 {
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
@@ -45,7 +64,7 @@ h2 {
 
 h2 span {
   opacity: .5;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 h3 {
@@ -69,48 +88,48 @@ a {
   justify-content: center;
   padding: 4rem;
   color: #efeff0;
-  min-width: 396px;
+  min-width: 24.75rem;
 }
 
 #app #sidebar img {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   border-radius: 50%;
 }
 
 #app #sidebar h1 span {
   background-color: #efeff0;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   color: #131315;
-  padding: 0 10px;
+  padding: 0 0.625rem;
 }
 
 #app #sidebar p {
   font-size: 1.6rem;
-  margin: 0 0 20px;
+  margin: 0 0 1.25rem;
 }
 
 #app #sidebar .social {
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 #app #sidebar .social span {
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 #app #sidebar .social span svg {
-  height: 30px;
+  height: 1.875rem;
   fill: #efeff0;
 }
 
 #app #sidebar button {
-  width: 125px;
+  min-width: 7.8125rem;
   background-color: #efeff0;
   border: 3px solid transparent;
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 20px 0 0;
+  border-radius: 0.375rem;
+  padding: 0.625rem;
+  margin: 1.25rem 0 0;
   cursor: pointer;
   transition: all .1s ease;
 }
@@ -136,7 +155,7 @@ a {
 }
 
 #app main::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 #app main::-webkit-scrollbar-track {
@@ -150,11 +169,30 @@ a {
   transition: background-color .4s ease;
 }
 
+#app main .section {
+  min-height: 100vh;
+}
+
+#app main .section-wrapper {
+  display: grid;
+  position: relative;
+  width: 100%;
+  top: 10%;
+  opacity: 0;
+}
+
+#app main .fade-in {
+  animation-name: fadein;
+  animation-duration: 750ms;
+  animation-delay: 100ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
 #app main #intro {
   flex: 0 0 auto;
   -webkit-flex: 0 0 auto;
-  justify-content: center;
-  min-height: 50vh;
   padding: 8rem 16rem 8rem 8rem;
   background-color: #afcfaf;
   color: #131315;
@@ -164,10 +202,13 @@ a {
   color: #131315;
   text-decoration: underline;
   text-decoration-color: #efeff0;
-  transition: text-decoration-thickness .2s ease;
+  transition: all .2s ease;
 }
 
 #app main #intro a:hover {
+  border-radius: 0.1875rem;
+  background-color: #efeff0;
+  text-decoration-color: #131315;
   text-decoration-thickness: 2px;
 }
 
@@ -179,16 +220,25 @@ a {
   background-color: #363649;
 }
 
+#app main #skills a {
+  text-decoration: underline;
+}
+
+#app main #skills a:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
 #app main #skills .skill-barre {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 #app main #skills .skill-barre .barre {
   position: relative;
   width: 100%;
-  height: 12px;
+  height: 0.75rem;
   background-color: #131315;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 #app main #skills .skill-barre .barre #talent1,
@@ -199,7 +249,7 @@ a {
   height: 100%;
   top: 0;
   left: 0;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   width: 0;
 }
 
@@ -225,16 +275,7 @@ a {
   animation: fill 0.75s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
   width: 100%;
   background-color: #efeff0;
-  border-radius: 6px;
-}
-
-@keyframes fill {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+  border-radius: 0.375rem;
 }
 
 #app main #skills ul {
@@ -242,14 +283,36 @@ a {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  gap: 1rem;
 }
 
 #app main #skills ul li {
   list-style: none;
-  margin: 0 10px 10px 0;
-  padding: 10px;
+  padding: 0.625rem;
   border: 1px solid #131315;
-  border-radius: 6px;
+  border-radius: 0.375rem;
+  border: 1px solid #e69a99;
+}
+
+#app main #skills ul li a:hover {
+  background-color: white;
+  color: #131315;
+}
+
+#app main #skills ul li.skill-base {
+  border: 1px solid #dfdf9f;
+}
+
+#app main #skills ul li.skill-tech {
+  border: 1px solid #a6c4d9;
+}
+
+#app main #skills ul li.skill-template {
+  border: 1px solid #afcfaf;
+}
+
+#app main #skills ul li.skill-tool {
+  border: 1px solid #be9fdf;
 }
 
 #app main #cv {
@@ -270,9 +333,9 @@ a {
 #app main #cv .cv-conteneur .job-timeline {
   position: absolute;
   background-color: #131315;
-  width: 6px;
+  width: 0.375rem;
   height: 100%;
-  margin: 8px 9px 3rem;
+  margin: 0.5rem 1rem 3rem;
   z-index: -1;
 }
 
@@ -280,7 +343,7 @@ a {
   flex: 1;
   flex-basis: auto;
   width: 100%;
-  margin: 0 20px 3rem 0;
+  margin: 0 1.25rem 3rem 0;
 }
 
 #app main #cv .cv-conteneur .job-conteneur .job-marker {
@@ -288,8 +351,8 @@ a {
 }
 
 #app main #cv .cv-conteneur .job-conteneur .job-marker .job-circle {
-  margin-top: 5px;
-  height: 24px;
+  margin-top: 0.3125rem;
+  height: 2.375rem;
   fill: #131315;
 }
 
@@ -298,11 +361,11 @@ a {
 }
 
 #app main #cv .cv-conteneur .job-conteneur .job-emploi .job-temps {
-  padding: 10px;
+  padding: 0.625rem;
   background-color: rgba(19, 19, 21, 0.3);
   color: #efeff0;
-  border-radius: 6px;
-  margin: 0 0 20px;
+  border-radius: 0.375rem;
+  margin: 0 0 1.25rem;
   align-self: start;
 }
 
@@ -318,14 +381,13 @@ a {
 #app main #contact {
   flex: 0 0 auto;
   -webkit-flex: 0 0 auto;
-  justify-content: center;
   min-height: 100vh;
   padding: 8rem 16rem 8rem 8rem;
   background-color: #493649;
 }
 
 #app main #contact form {
-  max-width: 700px;
+  max-width: 62.5rem;
 }
 
 #app main #contact form #form-status {
@@ -345,39 +407,43 @@ a {
 }
 
 #app main #contact form .form-container .form-div:first-of-type {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 #app main #contact form input,
 #app main #contact form textarea {
   background-color: rgba(255, 255, 255, 0.8);
   border: 0;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 0.625rem;
+  border-radius: 0.375rem;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
   color: #131315;
   width: 100%;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: 1.25rem;
+  margin-top: 0.625rem;
 }
 
 #app main #contact form button {
   border: 3px solid transparent;
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  border-radius: 6px;
-  padding: 10px;
+  border-radius: 0.375rem;
+  padding: 0.625rem;
   text-transform: uppercase;
 }
 
 /* UTILS */
 .flex {
   display: flex;
-  display: -webkit-flex;
 }
 
 .flex-column {
   flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -390,7 +456,8 @@ a {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .btn:active {
@@ -400,10 +467,10 @@ a {
 
 .succes,
 .erreur {
-  padding: 10px;
+  padding: 0.625rem;
   width: 100%;
   font-weight: 500;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background-color: rgba(19, 19, 21, 0.3);
   color: #efeff0;
   margin-bottom: 3rem;
@@ -427,10 +494,10 @@ a {
 }
 
 /* MEDIA */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   html,
   body {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
   h1 {
     font-size: 3rem;
@@ -444,8 +511,8 @@ a {
     min-width: unset;
   }
   #app #sidebar img {
-    height: 150px;
-    width: 150px;
+    height: 9.375rem;
+    width: 9.375rem;
   }
   #app main {
     overflow-y: unset;
@@ -458,7 +525,7 @@ a {
     padding: 3rem;
   }
   #app main #contact form {
-    max-width: 700px;
+    max-width: 43.75rem;
     margin-right: 0;
   }
 }
