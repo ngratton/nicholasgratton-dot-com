@@ -1,13 +1,15 @@
-@import url('https://rsms.me/inter/inter.css');
-@import 'mixin/pxTorRem';
+@import url("https://rsms.me/inter/inter.css");
+@import "mixin/pxTorRem";
 @supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
+  html {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 /* VARIABLES */
 
-$font-titles: 'Inter', Arial, Helvetica, sans-serif;
-$font-body: 'Inter', Arial, Helvetica, sans-serif;
+$font-titles: "Inter", Arial, Helvetica, sans-serif;
+$font-body: "Inter", Arial, Helvetica, sans-serif;
 $color-white: hsl(240, 5%, 94%);
 $color-black: hsl(240, 5%, 8%);
 $roundedCorner: pxToRem(6);
@@ -15,40 +17,39 @@ $roundedCorner: pxToRem(6);
 /* ANIMATIONS */
 
 @keyframes fadein {
-    0% {
-    }
+  0% {
+  }
 
-    100% {
-        opacity: 1;
-        top: 0;
-    }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }
 
 @keyframes fill {
+  0% {
+    width: 0;
+  }
 
-    0% {
-        width: 0;
-    }
-
-    100% {
-        width: 100%;
-    }
+  100% {
+    width: 100%;
+  }
 }
 
 /* BACICS */
-    * {
-        box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    color: $color-white;
-    font-size: pxToRem(10);
-    font-family: $font-body;
-    font-feature-settings: 'salt';
-    background-color: $color-black;
+  margin: 0;
+  padding: 0;
+  color: $color-white;
+  font-size: pxToRem(10);
+  font-family: $font-body;
+  font-feature-settings: "salt";
+  background-color: $color-black;
 }
 
 h1,
@@ -57,499 +58,510 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-titles;
-    text-transform: uppercase;
+  font-family: $font-titles;
+  text-transform: uppercase;
 }
 
 h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: pxToRem(20);
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: pxToRem(20);
 }
 
 h2 {
-    font-size: 4rem;
-    font-weight: 700;
+  font-size: 4rem;
+  font-weight: 700;
 
-    span {
-        opacity: .5;
-        margin-right: pxToRem(10);
-    }
+  span {
+    opacity: 0.5;
+    margin-right: pxToRem(10);
+  }
 }
 
 h3 {
-    font-size: 2.4rem;
-    font-weight: 700;
+  font-size: 2.4rem;
+  font-weight: 700;
 }
 
 a {
-    color: $color-white;
-    text-decoration: none;
+  color: $color-white;
+  text-decoration: none;
 }
 
 /* STRUCTURE */
 
 #app {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
 
-    #sidebar {
-        justify-content: center;
-        padding: 4rem;
-        color: $color-white;
-        min-width: pxToRem(396);
+  #sidebar {
+    justify-content: center;
+    padding: 4rem;
+    color: $color-white;
+    min-width: pxToRem(396);
 
-        img {
-            width: pxToRem(200);
-            height: pxToRem(200);
-            border-radius: 50%;
+    img {
+      width: pxToRem(200);
+      height: pxToRem(200);
+      border-radius: 50%;
+    }
+
+    h1 {
+      span {
+        background-color: $color-white;
+        border-radius: $roundedCorner;
+        color: $color-black;
+        padding: 0 pxToRem(10);
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin: 0 0 pxToRem(20);
+    }
+
+    .social {
+      margin: pxToRem(20) 0;
+
+      span {
+        margin-right: pxToRem(20);
+
+        svg {
+          height: pxToRem(30);
+          fill: $color-white;
+        }
+      }
+    }
+
+    button {
+      min-width: pxToRem(125);
+      background-color: $color-white;
+      border: 3px solid rgba(0, 0, 0, 0);
+      font-family: $font-titles;
+      border-radius: $roundedCorner;
+      padding: pxToRem(10);
+      margin: pxToRem(20) 0 0;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    font-size: 1.6rem;
+    scrollbar-color: hsla(240, 5%, 8%, 0) hsla(240, 5%, 8%, 0);
+    scrollbar-width: thin;
+
+    &:hover {
+      scrollbar-color: $color-white hsla(240, 5%, 8%, 0);
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-white;
+      }
+    }
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: pxToRem(10);
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: none;
+      border-radius: 1rem;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background-color: none;
+      transition: background-color 0.4s ease;
+    }
+
+    .section {
+      min-height: 100vh;
+    }
+
+    .section-wrapper {
+      display: grid;
+      position: relative;
+      width: 100%;
+      top: 10%;
+      opacity: 0;
+    }
+
+    .fade-in {
+      animation-name: fadein;
+      animation-duration: 750ms;
+      animation-delay: 100ms;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+    }
+
+    #intro {
+      flex: 0 0 auto;
+      -webkit-flex: 0 0 auto;
+      padding: 8rem 16rem 8rem 8rem;
+      background-color: hsl(120, 25%, 75%);
+      color: $color-black;
+
+      a {
+        color: $color-black;
+        text-decoration: underline;
+        text-decoration-color: $color-white;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-radius: pxToRem(3);
+          background-color: $color-white;
+          text-decoration-color: $color-black;
+          text-decoration-thickness: 2px;
+        }
+      }
+    }
+
+    #skills {
+      flex: 0 0 auto;
+      -webkit-flex: 0 0 auto;
+      height: auto;
+      padding: 8rem 16rem 8rem 8rem;
+      background-color: hsl(240, 15%, 25%);
+
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+          background-color: white;
+        }
+      }
+
+      .skill-barre {
+        margin-bottom: pxToRem(20);
+
+        .barre {
+          position: relative;
+          width: 100%;
+          height: pxToRem(12);
+          background-color: $color-black;
+          border-radius: pxToRem(12);
+
+          #talent1,
+          #talent2,
+          #talent3,
+          #talent4 {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: $roundedCorner;
+            width: 0;
+          }
+
+          #talent1 {
+            width: 82.5%;
+          }
+          #talent2 {
+            width: 80%;
+          }
+          #talent3 {
+            width: 75%;
+          }
+          #talent4 {
+            width: 80%;
+          }
+
+          .barre-mesure {
+            position: absolute;
+            height: 100%;
+            animation: fill 0.75s cubic-bezier(0.6, -0.28, 0.735, 0.045)
+              forwards;
+            width: 100%;
+            background-color: $color-white;
+            border-radius: $roundedCorner;
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        gap: pxToRem(16);
+
+        li {
+          list-style: none;
+          padding: pxToRem(10);
+          border: 1px solid $color-black;
+          border-radius: $roundedCorner;
+
+          a:hover {
+            background-color: white;
+            color: $color-black;
+          }
+
+          &.skill-base {
+            border: 1px solid hsl(60, 50%, 75%);
+          }
+
+          &.skill-tech {
+            border: 1px solid hsl(205, 40%, 75%);
+          }
+
+          &.skill-framework {
+          }
+          border: 1px solid hsl(1, 60%, 75%);
+
+          &.skill-template {
+            border: 1px solid hsl(120, 25%, 75%);
+          }
+
+          &.skill-tool {
+            border: 1px solid hsl(269, 50%, 75%);
+          }
+        }
+      }
+    }
+
+    #cv {
+      flex: 0 0 auto;
+      -webkit-flex: 0 0 auto;
+      padding: 8rem 16rem 8rem 8rem;
+      background-color: hsl(60, 50%, 75%);
+      color: $color-black;
+
+      .cv-conteneur {
+        flex: 1 1 auto;
+        height: 100%;
+        position: relative;
+        z-index: 99;
+
+        .job-timeline {
+          position: absolute;
+          background-color: $color-black;
+          width: pxToRem(6);
+          height: 100%;
+          margin: pxToRem(8) pxToRem(16) 3rem;
+          z-index: -1;
         }
 
-        h1 {
+        .job-conteneur {
+          flex: 1;
+          flex-basis: auto;
+          width: 100%;
+          margin: 0 pxToRem(20) pxToRem(48) 0;
 
-            span {
-                background-color: $color-white;
-                border-radius: $roundedCorner;
-                color: $color-black;
-                padding: 0 pxToRem(10);
+          .job-marker {
+            width: 4rem;
+
+            .job-circle {
+              margin-top: pxToRem(5);
+              height: pxToRem(38);
+              fill: $color-black;
             }
-        }
+          }
 
-        p {
-            font-size: 1.6rem;
-            margin: 0 0 pxToRem(20);
-        }
+          .job-emploi {
+            padding-left: 2em;
 
-        .social {
-            margin: pxToRem(20) 0;
-
-            span {
-                margin-right: pxToRem(20);
-                
-                svg {
-                    height: pxToRem(30);
-                    fill: $color-white;
-                }
+            .job-temps {
+              padding: pxToRem(10);
+              background-color: hsla(240, 5%, 8%, 0.3);
+              color: $color-white;
+              border-radius: $roundedCorner;
+              margin: 0 0 pxToRem(20);
+              align-self: start;
             }
+
+            h3 {
+              margin: 0;
+            }
+
+            .job-employeur {
+              margin-top: 0;
+              color: hsla(240, 5%, 8%, 0.75);
+            }
+          }
+        }
+      }
+    }
+
+    #contact {
+      flex: 0 0 auto;
+      -webkit-flex: 0 0 auto;
+      min-height: 100vh;
+      padding: 8rem 16rem 8rem 8rem;
+      background-color: hsl(300, 15%, 25%);
+
+      form {
+        max-width: pxToRem(1000);
+
+        #form-status {
+          display: none;
+          align-items: center;
+        }
+
+        .form-container {
+          display: flex;
+
+          .form-div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+
+            &:first-of-type {
+              margin-right: pxToRem(10);
+            }
+          }
+        }
+
+        input,
+        textarea {
+          background-color: rgba(255, 255, 255, 0.8);
+          border: 0;
+          padding: pxToRem(10);
+          border-radius: $roundedCorner;
+          font-family: $font-body;
+          font-size: 1.6rem;
+          color: $color-black;
+          width: 100%;
+          margin-bottom: pxToRem(20);
+          margin-top: pxToRem(10);
         }
 
         button {
-            min-width: pxToRem(125);
-            background-color: $color-white;
-            border: 3px solid rgba(0,0,0,0);
-            font-family: $font-titles;
-            border-radius: $roundedCorner;
-            padding: pxToRem(10);
-            margin: pxToRem(20) 0 0;
-            cursor: pointer;
-            transition: all .1s ease;
+          border: 3px solid rgba(0, 0, 0, 0);
+          font-family: $font-titles;
+          border-radius: $roundedCorner;
+          padding: pxToRem(10);
+          text-transform: uppercase;
         }
+      }
     }
-
-    main {
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-        font-size: 1.6rem;
-        scrollbar-color: hsla(240, 5%, 8%, 0) hsla(240, 5%, 8%, 0);
-        scrollbar-width: thin;
-
-        &:hover {
-            scrollbar-color: $color-white hsla(240, 5%, 8%, 0);
-
-            &::-webkit-scrollbar-thumb {
-                background-color: $color-white;
-            }
-        }
-
-        /* width */
-        &::-webkit-scrollbar {
-            width: pxToRem(10);
-        }
-
-        /* Track */
-        &::-webkit-scrollbar-track {
-            background: none;
-            border-radius: 1rem;
-        }
-
-        /* Handle */
-        &::-webkit-scrollbar-thumb {
-            border-radius: 1rem;
-            background-color: none;
-            transition: background-color .4s ease;
-        }
-
-        .section {
-            min-height: 100vh;
-        } 
-
-        .section-wrapper {
-            display: grid;
-            position: relative;
-            width: 100%;
-            top: 10%;
-            opacity: 0;
-        }
-
-        .fade-in {
-            animation-name: fadein;
-            animation-duration: 750ms;
-            animation-delay: 100ms;
-            animation-iteration-count: 1;
-            animation-timing-function: ease-in;
-            animation-fill-mode: forwards;
-        }
-
-        #intro {
-            flex: 0 0 auto;
-            -webkit-flex: 0 0 auto;
-            padding: 8rem 16rem 8rem 8rem;
-            background-color: hsl(120, 25%, 75%);
-            color: $color-black;
-
-            a {
-                color: $color-black;
-                text-decoration: underline;
-                text-decoration-color: $color-white;
-                transition: all .2s ease;
-
-                &:hover {
-                    border-radius: pxToRem(3);
-                    background-color: $color-white;
-                    text-decoration-color: $color-black;
-                    text-decoration-thickness: 2px;
-                }
-            }
-        }
-    
-        #skills {
-            flex: 0 0 auto;
-            -webkit-flex: 0 0 auto;
-            height: auto;
-            padding: 8rem 16rem 8rem 8rem;
-            background-color: hsl(240, 15%, 25%);
-
-            a {
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
-                    background-color: white;
-                }
-            }
-
-            .skill-barre {
-                margin-bottom: pxToRem(20);
-
-                .barre {
-                    position: relative;
-                    width: 100%;
-                    height: pxToRem(12);
-                    background-color: $color-black;
-                    border-radius: pxToRem(12);
-
-                    #talent1,
-                    #talent2,
-                    #talent3,
-                    #talent4 {
-                        position: absolute;
-                        height: 100%;
-                        top: 0;
-                        left: 0;
-                        border-radius: $roundedCorner;
-                        width: 0;
-                    }
-
-                    #talent1 { width: 82.5%; }
-                    #talent2 { width: 80%; }
-                    #talent3 { width: 75%; }
-                    #talent4 { width: 80%; }
-
-                    .barre-mesure {
-                        position: absolute;
-                        height: 100%;
-                        animation: fill .75s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
-                        width: 100%;
-                        background-color: $color-white;
-                        border-radius: $roundedCorner;
-                    }
-                }
-            }
-
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0;
-                padding: 0;
-                gap: pxToRem(16);
-
-                li {
-                    list-style: none;
-                    padding: pxToRem(10);
-                    border: 1px solid $color-black;
-                    border-radius: $roundedCorner;
-
-                    a:hover {
-                        background-color: white;
-                        color: $color-black
-                    }
-
-                    &.skill-base {
-                        border: 1px solid hsl(60, 50%, 75%);
-                    }
-
-                    &.skill-tech {
-                        border: 1px solid hsl(205, 40%, 75%);
-                    }
-
-                    &.skill-framework {
-                    }
-                    border: 1px solid hsl(1, 60%, 75%);
-
-                    &.skill-template {
-                        border: 1px solid hsl(120, 25%, 75%);
-                    }
-                    
-                    &.skill-tool {
-                        border: 1px solid hsl(269, 50%, 75%);
-                    }
-                }
-            }
-        }
-    
-        #cv {
-            flex: 0 0 auto;
-            -webkit-flex: 0 0 auto;
-            padding: 8rem 16rem 8rem 8rem;
-            background-color: hsl(60, 50%, 75%);
-            color: $color-black;
-
-            .cv-conteneur {
-                flex: 1 1 auto;
-                height: 100%;
-                position: relative;
-                z-index: 99;
-                
-                .job-timeline {
-                    position: absolute;
-                    background-color: $color-black;
-                    width: pxToRem(6);
-                    height: 100%;
-                    margin: pxToRem(8) pxToRem(16) 3rem;
-                    z-index: -1;
-                }
-
-                .job-conteneur {
-                    flex: 1;
-                    flex-basis: auto;
-                    width: 100%;
-                    margin: 0 pxToRem(20) pxToRem(48) 0;
-
-                    .job-marker {
-                        width: 4rem;
-
-                        .job-circle {
-                            margin-top: pxToRem(5);
-                            height: pxToRem(38);
-                            fill: $color-black;
-                        }
-                    }
-
-                    .job-emploi {
-                        padding-left: 2em;
-
-                        .job-temps {
-                            padding: pxToRem(10);
-                            background-color: hsla(240, 5%, 8%, 0.3);
-                            color: $color-white;
-                            border-radius: $roundedCorner;
-                            margin: 0 0 pxToRem(20);
-                            align-self: start;
-                        }
-    
-                        h3 {
-                            margin: 0;
-                        }
-    
-                        .job-employeur {
-                            margin-top: 0;
-                            color: hsla(240, 5%, 8%, 0.75);
-                        }
-                    }
-
-                }
-            }
-        }
-    
-        #contact {
-            flex: 0 0 auto;
-            -webkit-flex: 0 0 auto;
-            min-height: 100vh;
-            padding: 8rem 16rem 8rem 8rem;
-            background-color: hsl(300, 15%, 25%);
-
-            form {
-                max-width: pxToRem(1000);
-
-                #form-status {
-                    display: none;
-                    align-items: center;
-                }
-
-                .form-container {
-                    display: flex;
-
-                    .form-div {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        width: 100%;
-
-                        &:first-of-type {
-                            margin-right: pxToRem(10);
-                        }
-                    }
-                }
-
-                input,
-                textarea {
-                    background-color: rgba(255,255,255,0.8);
-                    border: 0;
-                    padding: pxToRem(10);
-                    border-radius: $roundedCorner;
-                    font-family: $font-body;
-                    font-size: 1.6rem;
-                    color: $color-black;
-                    width: 100%;
-                    margin-bottom: pxToRem(20);
-                    margin-top: pxToRem(10);
-                }
-
-                button {
-                    border: 3px solid rgba(0,0,0,0);
-                    font-family: $font-titles;
-                    border-radius: $roundedCorner;
-                    padding: pxToRem(10);
-                    text-transform: uppercase;
-                }
-            }
-        }
-    }
+  }
 }
-
 
 /* UTILS */
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-center {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.visually-hidden {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn {
-    background-color: $color-white;
+  background-color: $color-white;
 
-    a {
-        color: $color-black;
-    }
+  a {
+    color: $color-black;
+  }
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 pxToRem(5) pxToRem(15) rgba(0,0,0,0.5);
-        cursor: pointer;
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 pxToRem(5) pxToRem(15) rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
 
-    &:active {
-        transform: scale(.95);
-        transform-origin: center;
-    }
+  &:active {
+    transform: scale(0.95);
+    transform-origin: center;
+  }
 }
 
 .succes,
 .erreur {
-    padding: pxToRem(10);
-    width: 100%;
-    font-weight: 500;
-    border-radius: $roundedCorner;
-    background-color: hsla(240, 5%, 8%, 0.3);
-    color: $color-white;
-    margin-bottom: 3rem;
+  padding: pxToRem(10);
+  width: 100%;
+  font-weight: 500;
+  border-radius: $roundedCorner;
+  background-color: hsla(240, 5%, 8%, 0.3);
+  color: $color-white;
+  margin-bottom: 3rem;
 }
 
 #dot-status {
-    height: 1.6rem;
-    margin-right: 1rem;
+  height: 1.6rem;
+  margin-right: 1rem;
 }
 
 .svg-succes {
-    fill: hsl(120, 50%, 25%);
+  fill: hsl(120, 50%, 25%);
 }
 
 .svg-erreur {
-    fill: hsl(0, 50%, 25%);
+  fill: hsl(0, 50%, 25%);
 }
 
 .cache {
-    display: none;
+  display: none;
 }
-
 
 /* MEDIA */
 
 @media screen and (max-width: pxToRem(768)) {
+  html,
+  body {
+    font-size: pxToRem(8);
+  }
 
-    html,
-    body {
-        font-size: pxToRem(8);
+  h1 {
+    font-size: 3rem;
+  }
+
+  #app {
+    display: unset;
+
+    #sidebar {
+      min-height: 100vh;
+      padding: 3rem;
+      min-width: unset;
+
+      img {
+        height: pxToRem(150);
+        width: pxToRem(150);
+      }
     }
 
-    h1 {
-        font-size: 3rem;
-    }
+    main {
+      overflow-y: unset;
 
-    #app {
-        display: unset;
+      #intro,
+      #skills,
+      #cv,
+      #contact {
+        min-height: 100vh;
+        padding: 3rem;
+      }
 
-        #sidebar {
-            min-height: 100vh;
-            padding: 3rem;
-            min-width: unset;
-
-            img {
-                height: pxToRem(150);
-                width: pxToRem(150);
-            }
-            
+      #contact {
+        form {
+          max-width: pxToRem(700);
+          margin-right: 0;
         }
-    
-        main {
-            overflow-y: unset;
-
-            #intro,
-            #skills,
-            #cv,
-            #contact {
-                min-height: 100vh;
-                padding: 3rem;
-            }
-
-            #contact {
-    
-                form {
-                    max-width: pxToRem(700);
-                    margin-right: 0;
-                }
-            }
-        }
-
+      }
     }
+  }
 }
