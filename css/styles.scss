@@ -1,5 +1,8 @@
+@use "mixin/unitConversion";
+@use "mixin/animations";
+
 @import url("https://rsms.me/inter/inter.css");
-@import "mixin/pxTorRem";
+
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
@@ -12,7 +15,10 @@ $font-titles: "Inter", Arial, Helvetica, sans-serif;
 $font-body: "Inter", Arial, Helvetica, sans-serif;
 $color-white: hsl(240, 5%, 94%);
 $color-black: hsl(240, 5%, 8%);
-$roundedCorner: pxToRem(6);
+$color-linkedin: hsl(205, 100%, 50%);
+$color-github: hsl(240, 5%, 75%);
+$color-email: hsl(60, 100%, 50%);
+$roundedCorner: unitConversion.pxToRem(6);
 
 /* ANIMATIONS */
 
@@ -36,7 +42,11 @@ $roundedCorner: pxToRem(6);
   }
 }
 
+@include animations.spinOnHover(spinOnHover-2, -2deg);
+@include animations.spinOnHover(spinOnHover-4, -4deg);
+
 /* BACICS */
+
 * {
   box-sizing: border-box;
 }
@@ -46,10 +56,11 @@ body {
   margin: 0;
   padding: 0;
   color: $color-white;
-  font-size: pxToRem(10);
+  font-size: unitConversion.pxToRem(12);
   font-family: $font-body;
   font-feature-settings: "salt";
   background-color: $color-black;
+  text-wrap: pretty;
 }
 
 h1,
@@ -63,29 +74,35 @@ h6 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: unitConversion.pxToRem(64);
   font-weight: 700;
-  margin-bottom: pxToRem(20);
+  margin-bottom: unitConversion.pxToRem(20);
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: unitConversion.pxToRem(64);
   font-weight: 700;
 
   span {
     opacity: 0.5;
-    margin-right: pxToRem(10);
+    margin-right: unitConversion.pxToRem(10);
   }
 }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: unitConversion.pxToRem(38);
   font-weight: 700;
 }
 
 a {
   color: $color-white;
   text-decoration: none;
+  transition: text-decoration 200ms ease-in;
+}
+
+a:hover {
+    animation: spinOnHover-2 200ms ease-in-out forwards;
+    text-decoration: 2px underline $color-white;
 }
 
 /* STRUCTURE */
@@ -97,14 +114,14 @@ a {
 
   #sidebar {
     justify-content: center;
-    padding: 4rem;
+    padding: unitConversion.pxToRem(64);
     color: $color-white;
-    min-width: pxToRem(396);
+    min-width: unitConversion.pxToRem(396);
 
     img {
-      width: pxToRem(200);
-      height: pxToRem(200);
-      border-radius: 50%;
+      width: unitConversion.pxToRem(200);
+      height: unitConversion.pxToRem(200);
+      border-radius: $roundedCorner;
     }
 
     h1 {
@@ -112,36 +129,60 @@ a {
         background-color: $color-white;
         border-radius: $roundedCorner;
         color: $color-black;
-        padding: 0 pxToRem(10);
+        padding: 0 unitConversion.pxToRem(10);
       }
     }
 
     p {
-      font-size: 1.6rem;
-      margin: 0 0 pxToRem(20);
+      font-size: unitConversion.pxToRem(26);
+      margin: 0 0 unitConversion.pxToRem(20);
     }
 
     .social {
-      margin: pxToRem(20) 0;
+      margin: unitConversion.pxToRem(20) 0;
 
       span {
-        margin-right: pxToRem(20);
+        margin-right: unitConversion.pxToRem(20);
+
+        a,
+        a:hover {
+          text-decoration: none;
+        }
 
         svg {
-          height: pxToRem(30);
+          height: unitConversion.pxToRem(30);
           fill: $color-white;
+          transition-property: fill 250ms ease-in;
+        }
+
+        svg.icon-linkedin:hover,
+        svg.icon-github:hover,
+        svg.icon-email:hover {
+            animation: spinOnHover-4 200ms ease-in-out forwards;
+        }
+
+        svg.icon-linkedin:hover {
+          fill: $color-linkedin;
+        }
+
+        svg.icon-github:hover {
+          fill: $color-github;
+        }
+
+        svg.icon-email:hover {
+          fill: $color-email;
         }
       }
     }
 
     button {
-      min-width: pxToRem(125);
+      min-width: unitConversion.pxToRem(125);
       background-color: $color-white;
       border: 3px solid rgba(0, 0, 0, 0);
       font-family: $font-titles;
       border-radius: $roundedCorner;
-      padding: pxToRem(10);
-      margin: pxToRem(20) 0 0;
+      padding: unitConversion.pxToRem(10);
+      margin: unitConversion.pxToRem(20) 0 0;
       cursor: pointer;
       transition: all 0.1s ease;
     }
@@ -151,7 +192,7 @@ a {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    font-size: 1.6rem;
+    font-size: unitConversion.pxToRem(22);
     scrollbar-color: hsla(240, 5%, 8%, 0) hsla(240, 5%, 8%, 0);
     scrollbar-width: thin;
 
@@ -165,18 +206,18 @@ a {
 
     /* width */
     &::-webkit-scrollbar {
-      width: pxToRem(10);
+      width: unitConversion.pxToRem(10);
     }
 
     /* Track */
     &::-webkit-scrollbar-track {
       background: none;
-      border-radius: 1rem;
+      border-radius: unitConversion.pxToRem(16);
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      border-radius: 1rem;
+      border-radius: unitConversion.pxToRem(16);
       background-color: none;
       transition: background-color 0.4s ease;
     }
@@ -216,7 +257,7 @@ a {
         transition: all 0.2s ease;
 
         &:hover {
-          border-radius: pxToRem(3);
+          border-radius: unitConversion.pxToRem(3);
           background-color: $color-white;
           text-decoration-color: $color-black;
           text-decoration-thickness: 2px;
@@ -240,14 +281,14 @@ a {
       }
 
       .skill-barre {
-        margin-bottom: pxToRem(20);
+        margin-bottom: unitConversion.pxToRem(20);
 
         .barre {
           position: relative;
           width: 100%;
-          height: pxToRem(12);
+          height: unitConversion.pxToRem(12);
           background-color: $color-black;
-          border-radius: pxToRem(12);
+          border-radius: unitConversion.pxToRem(12);
 
           #talent1,
           #talent2,
@@ -291,11 +332,11 @@ a {
         flex-wrap: wrap;
         margin: 0;
         padding: 0;
-        gap: pxToRem(16);
+        gap: unitConversion.pxToRem(16);
 
         li {
           list-style: none;
-          padding: pxToRem(10);
+          padding: unitConversion.pxToRem(10);
           border: 1px solid $color-black;
           border-radius: $roundedCorner;
 
@@ -346,9 +387,9 @@ a {
         .job-timeline {
           position: absolute;
           background-color: $color-black;
-          width: pxToRem(6);
+          width: unitConversion.pxToRem(6);
           height: 100%;
-          margin: pxToRem(8) pxToRem(16) 3rem;
+          margin: unitConversion.pxToRem(8) unitConversion.pxToRem(16) unitConversion.pxToRem(48);
           z-index: -1;
         }
 
@@ -356,14 +397,14 @@ a {
           flex: 1;
           flex-basis: auto;
           width: 100%;
-          margin: 0 pxToRem(20) pxToRem(48) 0;
+          margin: 0 unitConversion.pxToRem(20) unitConversion.pxToRem(48) 0;
 
           .job-marker {
-            width: 4rem;
+            width: unitConversion.pxToRem(64);
 
             .job-circle {
-              margin-top: pxToRem(5);
-              height: pxToRem(38);
+              margin-top: unitConversion.pxToRem(5);
+              height: unitConversion.pxToRem(38);
               fill: $color-black;
             }
           }
@@ -372,11 +413,11 @@ a {
             padding-left: 2em;
 
             .job-temps {
-              padding: pxToRem(10);
+              padding: unitConversion.pxToRem(10);
               background-color: hsla(240, 5%, 8%, 0.3);
               color: $color-white;
               border-radius: $roundedCorner;
-              margin: 0 0 pxToRem(20);
+              margin: 0 0 unitConversion.pxToRem(20);
               align-self: start;
             }
 
@@ -387,6 +428,10 @@ a {
             .job-employeur {
               margin-top: 0;
               color: hsla(240, 5%, 8%, 0.75);
+            }
+
+            a {
+              align-self: flex-start;
             }
           }
         }
@@ -400,7 +445,7 @@ a {
       background-color: hsl(300, 15%, 25%);
 
       form {
-        max-width: pxToRem(1000);
+        max-width: unitConversion.pxToRem(1000);
 
         #form-status {
           display: none;
@@ -417,7 +462,7 @@ a {
             width: 100%;
 
             &:first-of-type {
-              margin-right: pxToRem(10);
+              margin-right: unitConversion.pxToRem(10);
             }
           }
         }
@@ -426,21 +471,21 @@ a {
         textarea {
           background-color: rgba(255, 255, 255, 0.8);
           border: 0;
-          padding: pxToRem(10);
+          padding: unitConversion.pxToRem(10);
           border-radius: $roundedCorner;
           font-family: $font-body;
-          font-size: 1.6rem;
+          font-size: unitConversion.pxToRem(26);
           color: $color-black;
           width: 100%;
-          margin-bottom: pxToRem(20);
-          margin-top: pxToRem(10);
+          margin-bottom: unitConversion.pxToRem(20);
+          margin-top: unitConversion.pxToRem(10);
         }
 
         button {
           border: 3px solid rgba(0, 0, 0, 0);
           font-family: $font-titles;
           border-radius: $roundedCorner;
-          padding: pxToRem(10);
+          padding: unitConversion.pxToRem(10);
           text-transform: uppercase;
         }
       }
@@ -482,7 +527,7 @@ a {
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 pxToRem(5) pxToRem(15) rgba(0, 0, 0, 0.5);
+    box-shadow: 0 unitConversion.pxToRem(5) unitConversion.pxToRem(15) rgba(0, 0, 0, 0.5);
     cursor: pointer;
   }
 
@@ -494,18 +539,18 @@ a {
 
 .succes,
 .erreur {
-  padding: pxToRem(10);
+  padding: unitConversion.pxToRem(10);
   width: 100%;
   font-weight: 500;
   border-radius: $roundedCorner;
   background-color: hsla(240, 5%, 8%, 0.3);
   color: $color-white;
-  margin-bottom: 3rem;
+  margin-bottom: unitConversion.pxToRem(48);
 }
 
 #dot-status {
-  height: 1.6rem;
-  margin-right: 1rem;
+  height: unitConversion.pxToRem(26);
+  margin-right: unitConversion.pxToRem(16);
 }
 
 .svg-succes {
@@ -522,14 +567,14 @@ a {
 
 /* MEDIA */
 
-@media screen and (max-width: pxToRem(768)) {
+@media screen and (max-width: unitConversion.pxToRem(768)) {
   html,
   body {
-    font-size: pxToRem(8);
+    font-size: unitConversion.pxToRem(8);
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: unitConversion.pxToRem(48);
   }
 
   #app {
@@ -537,12 +582,12 @@ a {
 
     #sidebar {
       min-height: 100vh;
-      padding: 3rem;
+      padding: unitConversion.pxToRem(48);
       min-width: unset;
 
       img {
-        height: pxToRem(150);
-        width: pxToRem(150);
+        height: unitConversion.pxToRem(150);
+        width: unitConversion.pxToRem(150);
       }
     }
 
@@ -554,12 +599,12 @@ a {
       #cv,
       #contact {
         min-height: 100vh;
-        padding: 3rem;
+        padding: unitConversion.pxToRem(48);
       }
 
       #contact {
         form {
-          max-width: pxToRem(700);
+          max-width: unitConversion.pxToRem(700);
           margin-right: 0;
         }
       }
@@ -581,7 +626,7 @@ a {
   }
 
   #sidebar {
-    padding: 1rem;
+    padding: unitConversion.pxToRem(16);
     color: rgb(0,0,0);
 
     img {
@@ -591,7 +636,7 @@ a {
 
   main {
     h2 {
-      margin: 1rem;
+      margin: unitConversion.pxToRem(16);
     }
 
     #intro {}
