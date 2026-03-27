@@ -113,19 +113,6 @@ h6 {
     padding: 2rem;
     z-index: var(--zindex-nav);
 
-    /* &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: var(--color-main-background);
-        mask-image: linear-gradient(black 0%, rgba(0, 0, 0, 0.6) 35%, transparent 90%);
-        mask-repeat: no-repeat;
-        mask-composite: substract;
-        mask-origin: border-box;
-        mask-position: center;
-        z-index: -1;
-    } */
-
     .menu-label {
         display: inline-block;
     }
@@ -146,7 +133,8 @@ h6 {
         background-repeat: no-repeat;
         background-color: var(--color-main-text);
         cursor: pointer;
-        filter: drop-shadow(.5rem .5rem 1rem rgba(0, 0, 0, 0.6))
+        filter: drop-shadow(.5rem .5rem 1rem rgba(0, 0, 0, 0.6));
+        transform: rotate(-20deg);
     }
 }
 

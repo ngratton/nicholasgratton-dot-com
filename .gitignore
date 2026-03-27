@@ -1,2 +1,4 @@
 .vscode/
+.parcel-cache/
+.parcel-cache/data.mdb
 node_modules/
