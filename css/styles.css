@@ -127,6 +127,7 @@ h6 {
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
+        border: 3px solid var(--color-main-text);
         background-image: var(--svg-icon-togglemode);
         background-size: 1.5rem;
         background-position: center;
@@ -135,6 +136,12 @@ h6 {
         cursor: pointer;
         filter: drop-shadow(.5rem .5rem 1rem rgba(0, 0, 0, 0.6));
         transform: rotate(-20deg);
+        transition: border 300ms,background-color 300ms;
+
+        &:hover {
+            border: 3px solid var(--color-primary);
+            background-color: var(--color-primary);
+        }
     }
 }
 
