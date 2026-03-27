@@ -3,7 +3,7 @@
   "source": "index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build index.html --dist-dir public"
   },
   "devDependencies": {
     "eslint": "^8.11.0",
