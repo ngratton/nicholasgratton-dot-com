@@ -1,1 +1,3 @@
-favicon.psd
+.vscode/
+.parcel-cache/
+node_modules/

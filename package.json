@@ -1,8 +1,18 @@
 {
+  "name": "nicholasgratton-dot-com",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build index.html --dist-dir public"
+  },
   "devDependencies": {
     "eslint": "^8.11.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "parcel": "^2.16.4",
     "prettier": "2.5.1"
+  },
+  "dependencies": {
+    "gsap": "^3.14.2"
   }
 }
